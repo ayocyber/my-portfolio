@@ -6,7 +6,11 @@ import instagram from  "../asset/img/Instagram.png"
 import flight from "../asset/img/flight-booking.png"
 import Chat_App from "../asset/img/Chat-App.png"
 import Gallery from "../asset/img/Gallery-app.png"
-
+import Note_App from "../asset/img/Note-App.png"
+import YouTube from "../asset/img/YouTube_Clone.png"
+import BugetPlanner from "../asset/img/Budget_Planner.png"
+import Hang_man from "../asset/img/Hang_man.png"
+import Motivation from "../asset/img/Motivational.png"
 
 const Project = () => {
 
@@ -32,15 +36,34 @@ const Project = () => {
             imgUrl : Gallery
         },
         {
-            title : "photo-gallery",
-            description : "Design and development",
-            imgUrl : instagram
+            title : "Note_App",
+            description : "Note App",
+            imgUrl : Note_App
         },
         {
-            title : "photo-gallery",
-            description : "Design and development",
-            imgUrl : instagram
+            title : "Vid Tube",
+            description : "Youtube Clone",
+            imgUrl : YouTube
         },
+    ]
+
+    const project2 = [
+        {
+            title : "Budget Planner",
+            description : "Budget Planning Website",
+            imgUrl : BugetPlanner
+        },
+        {
+            title : "HangMan",
+            description : "HangMan Game",
+            imgUrl : Hang_man
+        },
+        {
+            title : "Motivational Website",
+            description : "Motivational",
+            imgUrl : Motivation
+            
+        }
     ]
   return (
    <section className='project' id="project">
@@ -76,7 +99,20 @@ const Project = () => {
                                 }
                             </Row>
                         </TabPane>
-                        <TabPane eventKey="second">Lorem Ipsum</TabPane>
+                        <TabPane eventKey="second">
+                            <Row>
+                                {
+                                    project2.map((project, index) =>{
+                                        return(
+                                            <ProjectCard
+                                            key={index}
+                                            {...project}
+                                            />
+                                        )
+                                    })
+                                }
+                            </Row>
+                        </TabPane>
                         <TabPane eventKey="third">Lorem Ipsum</TabPane>
                     </TabContent>
                     </TabContainer>

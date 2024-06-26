@@ -9,7 +9,7 @@ import TrackVisibility from 'react-on-screen';
 const Banner = () => {
     const [loopNum , setLoopNum] = React.useState(0)
     const [isDeleting, setIsdeleting] = React.useState(false)
-    const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"]
+    const toRotate = ["Web Developer", "Fornt-End Dev", "Web Designer"]
     const [text , setText] = React.useState("")
     const [delta , setdelta] = React.useState(300 - Math.random() * 100)
     const period = 2000
@@ -51,7 +51,7 @@ const Banner = () => {
                 <Col xs={12} md={6} xl={7}>
                     <div className="">
                     <span className='tagline'>Welcome to my Portfolio</span>
-                        <h1>{`Hi I'm AyoTech `}<span className='wrap'>{text}</span></h1>
+                        <h1>{`Hi I'm Ayo `}<span className='wrap'>{text}</span></h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit labore nisi amet magnam laboriosam, architecto incidunt quas placeat odio adipisci nobis suscipit eligendi ullam porro illum cumque consectetur molestiae quae.</p>
                     <button onClick={()=>console.log("connect")}>Let's Connect <ArrowRightCircle size={25}/> </button>
                     </div>

@@ -14,6 +14,5 @@ const ProjectCard = ({title , description ,  imgUrl}) => {
   </Col>
   )
 }
-console.log("hello project")
 
 export default ProjectCard
