@@ -52,7 +52,9 @@ const Banner = () => {
                     <div className="">
                     <span className='tagline'>Welcome to my Portfolio</span>
                         <h1>{`Hi I'm Ayo `}<span className='wrap'>{text}</span></h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit labore nisi amet magnam laboriosam, architecto incidunt quas placeat odio adipisci nobis suscipit eligendi ullam porro illum cumque consectetur molestiae quae.</p>
+                        <p>
+                            I am a passionate web developer with experience in creating dynamic and responsive websites. My skill set includes front-end development and web design, enabling me to build engaging user interfaces and seamless user experiences. I am dedicated to continuous learning and staying updated with the latest technologies to deliver top-quality web solutions.
+                         </p>
                     <button onClick={()=>console.log("connect")}>Let's Connect <ArrowRightCircle size={25}/> </button>
                     </div>
                 </Col>

@@ -35,7 +35,7 @@ const Skill = () => {
                 <h2>
                     Skills 
                 </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ex suscipit, molestiae aut ut voluptatem soluta dolorum saepe facere ullam rem optio, quidem quos id enim? Obcaecati tempore necessitatibus totam.</p>
+                <p> My skill set includes front-end development and web design, enabling me to build engaging user interfaces and seamless user experiences.</p>
                 <Carousel responsive={responsive} infinite={true} className='skill-slider'>
                     <div className='item'>
                         <img src={meter1} alt=''/>

@@ -71,7 +71,9 @@ const Project = () => {
             <Row>
                 <Col>
                 <h2>Projects</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia assumenda eius fugiat unde sequi impedit rem aliquam vitae atque ut, officiis excepturi nisi quasi deleniti dolores explicabo consequuntur, nesciunt vero!</p>
+                <p>
+                    Here is a selection of some of my recent projects. Each project showcases my skills in design and development, and demonstrates my ability to create functional and visually appealing web applications. Click on each tab to explore the different projects.
+                </p>
                 <TabContainer id="projects-tab" defaultActiveKey="first">
                 <Nav variant="pills" className='nav-pills mb-5 justify-content-center align-items-center'id="pills-tab">
                         <Nav.Item>
@@ -113,7 +115,9 @@ const Project = () => {
                                 }
                             </Row>
                         </TabPane>
-                        <TabPane eventKey="third">Lorem Ipsum</TabPane>
+                        <TabPane eventKey="third">
+                             Additional projects and information will be available soon. Stay tuned for more updates and new exciting projects!
+                        </TabPane>
                     </TabContent>
                     </TabContainer>
                  
