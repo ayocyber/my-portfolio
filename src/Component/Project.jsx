@@ -18,32 +18,39 @@ const Project = () => {
         {
             title : "Instagram Clone",
             description : "Design and development",
-            imgUrl : instagram
+            imgUrl : instagram,
+            links : "https://instagram-clone-gilt-eta.vercel.app/"
+            
         },
         {
             title : "Flight Booking website",
             description : "Design and development",
-            imgUrl : flight
+            imgUrl : flight,
+             links : " https://flight-booking-website-eta.vercel.app/"
         },
         {
             title : "Chat APP",
             description : "Messaging website",
-            imgUrl : Chat_App
+            imgUrl : Chat_App,
+             links : " https://chat-website-three.vercel.app/"
         },
         {
             title : "photo-gallery",
             description : "Photo storage website",
-            imgUrl : Gallery
+            imgUrl : Gallery,
+             links : "https://photo-gallery-sepia-seven.vercel.app/"
         },
         {
             title : "Note_App",
             description : "Note App",
-            imgUrl : Note_App
+            imgUrl : Note_App,
+             links : "https://note-app-rho-red.vercel.app/"
         },
         {
             title : "Vid Tube",
             description : "Youtube Clone",
-            imgUrl : YouTube
+            imgUrl : YouTube,
+             links : "https://youtube-clone-virid-six.vercel.app/"
         },
     ]
 
@@ -51,17 +58,20 @@ const Project = () => {
         {
             title : "Budget Planner",
             description : "Budget Planning Website",
-            imgUrl : BugetPlanner
+            imgUrl : BugetPlanner,
+             links : " https://expense-tracker-pi-gules.vercel.app/"
         },
         {
             title : "HangMan",
             description : "HangMan Game",
-            imgUrl : Hang_man
+            imgUrl : Hang_man,
+             links : " https://hangman-game-ebon.vercel.app/"
         },
         {
             title : "Motivational Website",
             description : "Motivational",
-            imgUrl : Motivation
+            imgUrl : Motivation,
+             links : " https://movtivational.vercel.app/"
             
         }
     ]
