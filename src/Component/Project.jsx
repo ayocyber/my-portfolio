@@ -1,139 +1,100 @@
-import React from 'react';
-import { Col, Container, Row, TabContainer, TabContent, TabPane, Nav } from 'react-bootstrap';
+import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
-
 // Image Imports
 import instagram from "../asset/img/Instagram.png";
 import flight from "../asset/img/flight-booking.png";
 import Chat_App from "../asset/img/Chat-App.png";
 import Gallery from "../asset/img/Gallery-app.png";
-import Note_App from "../asset/img/Note-App.png";
 import YouTube from "../asset/img/YouTube_Clone.png";
 import BugetPlanner from "../asset/img/Budget_Planner.png";
 import Jobwebsite from "../asset/img/Job-website.png";
-import Hang_man from "../asset/img/Hang_man.png";
-import Motivation from "../asset/img/Motivational.png";
-
-// Import custom CSS
-// import './Project.css';
 
 const Project = () => {
-  const projects = [
+  const [activeTab, setActiveTab] = useState('web');
 
-    {
-      title: "Job website",
-      description: "Backend development",
-      imgUrl: Jobwebsite,
-      link: "https://pixel-position-t9ce.onrender.com/"
-    },
-  
-    {
-      title: "Flight Booking Website",
-      description: "Design and development",
-      imgUrl: flight,
-      link: "https://flight-booking-website-eta.vercel.app/"
-    },
-    {
-      title: "Chat App",
-      description: "Messaging website",
-      imgUrl: Chat_App,
-      link: "https://chat-website-three.vercel.app/"
-    },
-    {
-      title: "Photo Gallery",
-      description: "Photo storage website",
-      imgUrl: Gallery,
-      link: "https://photo-gallery-sepia-seven.vercel.app/"
-    },
-   
-    {
-      title: "Vid Tube",
-      description: "Youtube Clone",
-      imgUrl: YouTube,
-      link: "https://youtube-clone-virid-six.vercel.app/"
-    },
+  const webProjects = [
+    { title: "Job Website", description: "Backend development", tag: "Backend", imgUrl: Jobwebsite, link: "https://pixel-position-t9ce.onrender.com/" },
+    { title: "Flight Booking", description: "Design and development", tag: "Full-stack", imgUrl: flight, link: "https://flight-booking-website-eta.vercel.app/" },
+    { title: "Chat App", description: "Messaging website", tag: "Real-time", imgUrl: Chat_App, link: "https://chat-website-three.vercel.app/" },
+    { title: "Photo Gallery", description: "Photo storage website", tag: "Frontend", imgUrl: Gallery, link: "https://photo-gallery-sepia-seven.vercel.app/" },
+    { title: "Vid Tube", description: "YouTube clone", tag: "Clone", imgUrl: YouTube, link: "https://youtube-clone-virid-six.vercel.app/" },
+    { title: "Budget Planner", description: "Budget planning website", tag: "Utility", imgUrl: BugetPlanner, link: "https://expense-tracker-pi-gules.vercel.app/" },
   ];
 
-  const project2 = [
-    {
-      title: "Budget Planner",
-      description: "Budget Planning Website",
-      imgUrl: BugetPlanner,
-      link: "https://expense-tracker-pi-gules.vercel.app/"
-    },
-
-      {
-      title: "Instagram Clone",
-      description: "Design and development",
-      imgUrl: instagram,
-      link: "https://instagram-clone-gilt-eta.vercel.app/"
-    },
-   
+  const gameProjects = [
+    { title: "Budget Planner", description: "Budget planning website", tag: "Utility", imgUrl: BugetPlanner, link: "https://expense-tracker-pi-gules.vercel.app/" },
+    { title: "Instagram Clone", description: "Design and development", tag: "Clone", imgUrl: instagram, link: "https://instagram-clone-gilt-eta.vercel.app/" },
   ];
+
+  const tabs = [
+    { key: 'web', label: 'Web Apps' },
+    { key: 'apps', label: 'Mobile Apps' },
+    { key: 'upcoming', label: 'Upcoming' },
+  ];
+
+  const currentProjects = activeTab === 'web' ? webProjects : activeTab === 'apps' ? gameProjects : [];
 
   return (
-    <section className="project-section py-5" id="projects">
-      <Container>
-        <Row className="justify-content-center text-center mb-5">
-          <Col md={8}>
-            <h2 className="display-5 fw-bold mb-3">My Projects</h2>
-            <p className="text-muted fs-5">
-              Here is a selection of some of my recent projects. Each project showcases my skills in design and development, demonstrating my ability to create functional and visually appealing web applications.
-            </p>
-          </Col>
-        </Row>
+    <section style={{ background: '#faf9f6', padding: '4rem 1.5rem', minHeight: '100vh' }} id="projects">
+      {/* Header */}
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <p style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9a7f5e', fontWeight: 500, marginBottom: '0.6rem' }}>
+          Portfolio
+        </p>
+        <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: '2.8rem', fontWeight: 400, color: '#1a1a1a', margin: '0 0 1rem' }}>
+          My <em style={{ fontStyle: 'italic', color: '#b87c4c' }}>Projects</em>
+        </h2>
+        <p style={{ fontSize: 15, color: '#6b6460', maxWidth: 480, margin: '0 auto', lineHeight: 1.7, fontWeight: 300 }}>
+          A selection of recent work spanning design, development, and everything in between.
+        </p>
+      </div>
 
-        <Row>
-          <Col>
-            <TabContainer id="projects-tab" defaultActiveKey="web-apps">
-              <Nav 
-                variant="pills" 
-                className="custom-nav-pills justify-content-center mb-5" 
-                id="pills-tab"
-              >
-                <Nav.Item>
-                  <Nav.Link eventKey="web-apps">Web Apps</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="games-utils">Games & Utils</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="upcoming">Upcoming</Nav.Link>
-                </Nav.Item>
-              </Nav>
+      {/* Tab Switcher */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.5rem' }}>
+        <div style={{ display: 'flex', gap: 4, background: '#f0ece6', borderRadius: 100, padding: 4 }}>
+          {tabs.map(tab => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              style={{
+                padding: '8px 20px',
+                fontSize: 13,
+                fontWeight: 500,
+                border: 'none',
+                borderRadius: 100,
+                cursor: 'pointer',
+                color: activeTab === tab.key ? '#1a1a1a' : '#6b6460',
+                background: activeTab === tab.key ? '#fff' : 'transparent',
+                boxShadow: activeTab === tab.key ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-              <TabContent className="project-tab-content">
-                <TabPane eventKey="web-apps">
-                  <Row>
-                    {projects.map((project, index) => (
-                      <ProjectCard key={`web-${index}`} {...project} />
-                    ))}
-                  </Row>
-                </TabPane>
-                
-                <TabPane eventKey="games-utils">
-                  <Row>
-                    {project2.map((project, index) => (
-                      <ProjectCard key={`game-${index}`} {...project} />
-                    ))}
-                  </Row>
-                </TabPane>
-                
-                <TabPane eventKey="upcoming">
-                  <div className="upcoming-state text-center py-5">
-                    <h4 className="fw-semibold text-secondary mb-3">More to Come!</h4>
-                    <p className="text-muted">
-                      Additional projects and information will be available soon. Stay tuned for updates and new exciting releases.
-                    </p>
-                  </div>
-                </TabPane>
-              </TabContent>
-            </TabContainer>
-          </Col>
-        </Row>
-      </Container>
+      {/* Grid or Empty State */}
+      {activeTab === 'upcoming' ? (
+        <div style={{ textAlign: 'center', padding: '3rem 1rem', color: '#9a9490' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '0.75rem', opacity: 0.4 }}>◇</div>
+          <h4 style={{ fontFamily: "'DM Serif Display', serif", fontSize: '1.3rem', fontWeight: 400, color: '#4a4540', margin: '0 0 0.5rem' }}>
+            More to come
+          </h4>
+          <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.6, maxWidth: 300, margin: '0 auto' }}>
+            New projects and releases coming soon — stay tuned for updates.
+          </p>
+        </div>
+      ) : (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.25rem', maxWidth: 900, margin: '0 auto' }}>
+          {currentProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} index={index} />
+          ))}
+        </div>
+      )}
     </section>
   );
-}
+};
 
 export default Project;
