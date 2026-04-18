@@ -8,7 +8,9 @@ import Gallery from "../asset/img/Gallery-app.png";
 import YouTube from "../asset/img/YouTube_Clone.png";
 import BugetPlanner from "../asset/img/Budget_Planner.png";
 import Jobwebsite from "../asset/img/Job-website.png";
-
+import desc from "../asset/img/desc screen.png";
+import app_pic1 from "../asset/img/app_pic1.jpg";
+import app_pic2 from "../asset/img/app_pics2.jpg"
 const Project = () => {
   const [activeTab, setActiveTab] = useState('web');
 
@@ -22,8 +24,9 @@ const Project = () => {
   ];
 
   const gameProjects = [
-    { title: "Budget Planner", description: "Budget planning website", tag: "Utility", imgUrl: BugetPlanner, link: "https://expense-tracker-pi-gules.vercel.app/" },
-    { title: "Instagram Clone", description: "Design and development", tag: "Clone", imgUrl: instagram, link: "https://instagram-clone-gilt-eta.vercel.app/" },
+    { title: "WayaGram", description: "Mobile App", tag: "app", imgUrl: app_pic2, link: "https://play.google.com/store/apps/details?id=com.wayagram.euApp&hl=en" },
+    { title: "TUtus's App", description: "Ecommerce App", tag: "app", imgUrl: desc, link: "https://drive.google.com/file/d/1Ppid1Oo9_VKUuluc9LlhjjW-Alx140Zr/view?usp=drive_link" },
+    { title: "SFGHB – Searching for God’s Heartbeat ", description: "Design and development", tag: "Mobile Application", imgUrl: app_pic1, link: "https://play.google.com/store/search?q=sfghb&c=apps&hl=en" },
   ];
 
   const tabs = [
