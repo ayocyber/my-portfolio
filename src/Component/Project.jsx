@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 // Image Imports
-import instagram from "../asset/img/Instagram.png";
+
 import flight from "../asset/img/flight-booking.png";
 import Chat_App from "../asset/img/Chat-App.png";
 import Gallery from "../asset/img/Gallery-app.png";
