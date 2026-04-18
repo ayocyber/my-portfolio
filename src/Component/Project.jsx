@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
-// Image Imports
+
 
 import flight from "../asset/img/flight-booking.png";
 import Chat_App from "../asset/img/Chat-App.png";
