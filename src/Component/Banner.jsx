@@ -11,9 +11,9 @@ const Banner = () => {
   const period = 2000;
 
   React.useEffect(() => {
-    const ticker = setInterval(tick, delta);
-    return () => clearInterval(ticker);
-  }, [text]);
+  const ticker = setInterval(tick, delta);
+  return () => clearInterval(ticker);
+}, [text, delta, tick]);
 
   function tick() {
     const i = loopNum % toRotate.length;

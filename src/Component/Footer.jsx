@@ -15,15 +15,15 @@ const Footer = () => {
           <div style={styles.links}>
             <div style={styles.col}>
               <span style={styles.colLabel}>Work</span>
-              <a href="#" style={styles.link}>Projects</a>
-              <a href="#" style={styles.link}>Case studies</a>
-              <a href="#" style={styles.link}>Open source</a>
+              <a href="/projects" style={styles.link}>Projects</a>
+              <a href="/case-studies" style={styles.link}>Case studies</a>
+              <a href="/open-source" style={styles.link}>Open source</a>
             </div>
             <div style={styles.col}>
               <span style={styles.colLabel}>About</span>
-              <a href="#" style={styles.link}>Story</a>
-              <a href="#" style={styles.link}>Resume</a>
-              <a href="#" style={styles.link}>Contact</a>
+              <a href="/about" style={styles.link}>Story</a>
+              <a href="/resume" style={styles.link}>Resume</a>
+              <a href="/contact" style={styles.link}>Contact</a>
             </div>
           </div>
         </div>
