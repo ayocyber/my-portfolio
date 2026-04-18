@@ -11,37 +11,32 @@ const Banner = () => {
   const period = 2000;
 
   React.useEffect(() => {
-  const ticker = setInterval(tick, delta);
-  return () => clearInterval(ticker);
-}, [text, delta, tick]);
+    const tick = () => {
+      const i = loopNum % toRotate.length;
+      const fullText = toRotate[i];
+      const updatedText = isDeleting
+        ? fullText.substring(0, text.length - 1)
+        : fullText.substring(0, text.length + 1);
 
-  function tick() {
-    const i = loopNum % toRotate.length;
-    const fullText = toRotate[i];
-    const updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
+      setText(updatedText);
+      if (isDeleting) setDelta(prev => prev / 2);
 
-    setText(updatedText);
-    if (isDeleting) setDelta(prev => prev / 2);
+      if (!isDeleting && updatedText === fullText) {
+        setIsDeleting(true);
+        setDelta(period);
+      } else if (isDeleting && updatedText === "") {
+        setIsDeleting(false);
+        setLoopNum(prev => prev + 1);
+        setDelta(300);
+      }
+    };
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period);
-    } else if (isDeleting && updatedText === "") {
-      setIsDeleting(false);
-      setLoopNum(prev => prev + 1);
-      setDelta(300);
-    }
-  }
+    const ticker = setInterval(tick, delta);
+    return () => clearInterval(ticker);
+  }, [text, delta, loopNum, isDeleting]);
 
   return (
     <section className="banner-section" id="home">
-      <style>{`
-
-        }
-      `}</style>
-
       <div className="banner-accent-blob" />
       <div className="banner-accent-blob-2" />
 
