@@ -6,18 +6,14 @@ import navIcon1 from "../asset/img/nav-icon1.svg"
 import navIcon2 from "../asset/img/nav-icon2.svg"
 import navIcon3 from "../asset/img/nav-icon3.svg"
 
-
 const NavBar = () => {
   const [activeLink, setAtiveLink] = React.useState("home")
   const [scrolled, setScrolled] = React.useState(false)
+  const [expanded, setExpanded] = React.useState(false)  // 👈 track open/close
 
   React.useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 50)
     }
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
@@ -25,14 +21,21 @@ const NavBar = () => {
 
   function onUpdateActiveLink(value) {
     setAtiveLink(value)
+    setExpanded(false)  // 👈 close menu when a link is clicked
   }
 
   return (
-    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+    <Navbar
+      expand="lg"
+      expanded={expanded}
+      className={scrolled || expanded ? "scrolled" : ""}  // 👈 key fix
+    >
       <Container>
-        <Navbar.Brand href="#home">
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
+        <Navbar.Brand href="#home" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setExpanded(prev => !prev)}  // 👈 toggle on click
+        >
           <span className='navbar-toggler-icon'></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -52,9 +55,9 @@ const NavBar = () => {
           </Nav>
           <span className='navbar-text'>
             <div className='social-icon'>
-              <a href='https://www.linkedin.com/in/ayomide-lawal-645237298/' target='_blank' rel='noopener noreferrer'> <img src={navIcon1} alt='icon' /></a>
-              <a href='https://github.com/ayocyber' target='_blank' rel='noopener noreferrer'> <img src={navIcon2} alt='icon' /></a>
-              <a href='https://twitter.com/LawalAyomide' target='_blank' rel='noopener noreferrer'> <img src={navIcon3} alt='icon' /></a>
+              <a href='https://www.linkedin.com/in/ayomide-lawal-645237298/' target='_blank' rel='noopener noreferrer'><img src={navIcon1} alt='icon' /></a>
+              <a href='https://github.com/ayocyber' target='_blank' rel='noopener noreferrer'><img src={navIcon2} alt='icon' /></a>
+              <a href='https://twitter.com/LawalAyomide' target='_blank' rel='noopener noreferrer'><img src={navIcon3} alt='icon' /></a>
             </div>
             <button className='vvd' onClick={() => console.log("connect")}>
               <span>Let's Connect</span>
